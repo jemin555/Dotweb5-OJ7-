@@ -8066,9 +8066,8 @@ ts.add(1);
 - **HashSet** → Faster, unordered, ideal for quick lookups.  
 - **TreeSet** → Slower, ordered, ideal for sorted collections and range-based queries.  
 - Both ensure **uniqueness of elements**, but differ in how they organize and access them.  
-==============================================================================================
 
-               END  OF   DOTWEB5.0  DATASTRUCTURES
+=========================================================================================
 
 ===============================================================================================
 
