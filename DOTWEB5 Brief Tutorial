@@ -8931,7 +8931,7 @@ The compiler used is **oakjava7c**. We can compile an `.oakjava7` program using 
 java <filename>
 ```
 
-👉Below is the OakJava7 program:
+👉Below is the OakJava7 (JAVA7.0) program:
 
 ```oakjava
 class Oakjava7Prog
@@ -8988,7 +8988,7 @@ wilmix
 
 
 
-👉 Writing Your First Program using oakjava7 for Dotweb5.0
+👉 Writing Your First Program using oakjava7(JAVA7.0) for Dotweb5.0
 
 Create a file named **J7String.oakjava7** with the following code:
 
@@ -9022,7 +9022,7 @@ class Oakjava7Prog
 
 👉 Compiling the Program
 
-Use the OakJava7 compiler:
+Use the OakJava7 (JAVA7.0) compiler:
 
 ```
 oakjava7c J7String.oakjava7
@@ -9042,7 +9042,7 @@ Generated .wl class file J7String.class
 ---
 
 👉 Running the Program
-Run the program using the OakJava interpreter:
+Run the program using the OakJava7(JAVA7.0) interpreter:
 
 ```
 java J7String
