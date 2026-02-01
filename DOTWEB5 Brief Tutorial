@@ -8094,7 +8094,7 @@ A **J7ConcurrentHashMap** supports:
 
 ---
 
-# ✨ Neatly Arranged Dotweb5.0 J7ConcurrentHashMap Example
+# ✨ Dotweb5.0 J7ConcurrentHashMap Example
 
 ```
 <PRINTLN>("------------------------------------------------------------------------------------");
@@ -8183,7 +8183,7 @@ map19.put("A", 1);
 46
 3
 46
-B=null
+B=
 1
 ```
 
@@ -8265,6 +8265,41 @@ map19 = map19.Merge(map19, "B", " ", 3);
 - **ConcurrentHashMap** → Thread‑safe and fast, allows concurrent access with atomic operations.  
 - In Dotweb5.0, prefer **ConcurrentHashMap** for multi‑threaded programs, while **Hashtable** is mainly for backward compatibility.  
 
+
+ — here are the **key differences between ConcurrentHashMap and Hashtable**:
+
+---
+
+## 🔑 Differences
+
+- **Thread Safety**
+  - **Hashtable** → Uses **synchronized methods**, locking the entire map for every operation.  
+  - **ConcurrentHashMap** → Uses **fine‑grained concurrency**, locking only portions (segments/buckets), allowing multiple threads to work simultaneously.  
+
+- **Performance**
+  - **Hashtable** → Slower in multi‑threaded environments due to global lock.  
+  - **ConcurrentHashMap** → Faster and scalable because multiple threads can read/write concurrently.  
+
+- **Null Keys/Values**
+  - **Hashtable** → Does **not allow null keys or null values**.  
+  - **ConcurrentHashMap** → Also does **not allow null keys or null values**.  
+
+- **Atomic Operations**
+  - **Hashtable** → Does **not support atomic operations** like `putIfAbsent`, `computeIfAbsent`, `merge`.  
+  - **ConcurrentHashMap** → Provides **atomic methods** for safe concurrent updates.  
+
+- **Iteration**
+  - **Hashtable** → Uses **Enumeration** (legacy, not fail‑safe).  
+  - **ConcurrentHashMap** → Uses **iterators** that are **fail‑safe** (do not throw ConcurrentModificationException).  
+
+- **Use Case**
+  - **Hashtable** → Legacy applications needing synchronization.  
+  - **ConcurrentHashMap** → Modern concurrent applications requiring high performance.  
+
+---
+
+👉 In short: **Hashtable** is older and locks the whole map, while **ConcurrentHashMap** is modern, faster, 
+and supports atomic operations with fine‑grained concurrency.  
 
 
 
