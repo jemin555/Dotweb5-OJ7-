@@ -7435,9 +7435,419 @@ DESC: [13, 12]
 Contains 151? false
 After removeAll: true
 ```
+=================================================================================================
 
+# 📘 What is a TreeMap?
+
+- A **TreeMap** is a **map data structure** that stores key–value pairs in **sorted order of keys**.  
+- It is typically implemented using a **Red-Black Tree** (balanced binary search tree).  
+- Keys are unique, and each key maps to exactly one value.  
+- Provides efficient operations: **put, get, remove, containsKey, containsValue, subMap, headMap, tailMap**.  
 
 ---
+
+# 📝 Definition of TreeMap
+
+A **TreeMap** supports:  
+- **put(key, value)** → Insert a key-value pair.  
+- **get(key)** → Retrieve value for a given key.  
+- **containsKey(key)** → Check if a key exists.  
+- **containsValue(value)** → Check if a value exists.  
+- **remove(key)** → Remove a key-value pair.  
+- **size() / isEmpty()** → Get number of entries or check if empty.  
+- **keySet() / values()** → Get all keys or values.  
+- **subMap(from, to)** → Get a portion of the map between two keys.  
+- **headMap(toKey)** → Get all entries with keys less than `toKey`.  
+- **tailMap(fromKey)** → Get all entries with keys greater than or equal to `fromKey`.  
+- **clear()** → Remove all entries.  
+
+---
+
+# ✨ Dotweb5.0 TreeMap Example
+
+```
+<PRINTLN>("-------------------------------------------------------");
+<PRINTLN>("                   TREEMAP                             ");
+<PRINTLN>("-------------------------------------------------------");
+
+// -------------------------------
+// Create a TreeMap (keys sorted in natural order)
+// -------------------------------
+OJ7Lib.TreeMap map = new OJ7Lib.TreeMap();
+
+// -------------------------------
+// put() - Insert key-value pairs
+// -------------------------------
+map.put(3, "Three");
+map.put(1, "One");
+map.put(2, "Two");
+map.put(5, "Five");
+<PRINTLN>("After put: " + map);
+
+// -------------------------------
+// get()
+// -------------------------------
+<PRINTLN>("Get key 2: " + map.get(2));
+
+// -------------------------------
+// containsKey() and containsValue()
+// -------------------------------
+<PRINTLN>("Contains key 3? " + map.containsKey(3));
+<PRINTLN>("Contains value 'Five'? " + map.containsValue("Five"));
+
+// -------------------------------
+// remove()
+// -------------------------------
+map.remove(3);
+<PRINTLN>("After remove key 3: " + map);
+
+// -------------------------------
+// size() and isEmpty()
+// -------------------------------
+<PRINTLN>("Size: " + map.size());
+<PRINTLN>("Is empty? " + map.isEmpty());
+
+// -------------------------------
+// keySet() and values()
+// -------------------------------
+<PRINTLN>("Key set: " + map.keySet());
+<PRINTLN>("Values: " + map.values());
+
+// -------------------------------
+// subMap(), headMap(), tailMap()
+// -------------------------------
+<OJ7UTIL>.SortedMap sub = map.subMap(1, 5);
+<PRINTLN>("SubMap(1,5): " + sub);
+
+<OJ7UTIL>.SortedMap head = map.headMap(3);
+<PRINTLN>("HeadMap(<3): " + head);
+
+<OJ7UTIL>.SortedMap tail = map.tailMap(2);
+<PRINTLN>("TailMap(>=2): " + tail);
+
+// -------------------------------
+// clear()
+// -------------------------------
+map.clear();
+<PRINTLN>("After clear: " + map);
+```
+
+---
+
+# ✅ Step‑by‑Step Explanation
+
+1. **Create TreeMap** → Keys will be stored in natural ascending order.  
+2. **put()** → Adds entries: `{1=One, 2=Two, 3=Three, 5=Five}`.  
+3. **get(2)** → Retrieves `"Two"`.  
+4. **containsKey(3)** → Returns `true`.  
+5. **containsValue("Five")** → Returns `true`.  
+6. **remove(3)** → Removes key `3`. Map becomes `{1=One, 2=Two, 5=Five}`.  
+7. **size() / isEmpty()** → Size is `3`, not empty.  
+8. **keySet() / values()** → Keys → `[1, 2, 5]`, Values → `[One, Two, Five]`.  
+9. **subMap(1,5)** → Returns `{1=One, 2=Two}` (keys between 1 and 5).  
+10. **headMap(3)** → Returns `{1=One, 2=Two}` (keys less than 3).  
+11. **tailMap(2)** → Returns `{2=Two, 5=Five}` (keys ≥ 2).  
+12. **clear()** → Removes all entries. Map becomes `{}`.  
+
+---
+
+# 🎯 Final Output (Step by Step)
+
+```
+-------------------------------------------------------
+                   TREEMAP                             
+-------------------------------------------------------
+After put: {1=One, 2=Two, 3=Three, 5=Five}
+Get key 2: Two
+Contains key 3? true
+Contains value 'Five'? true
+After remove key 3: {1=One, 2=Two, 5=Five}
+Size: 3
+Is empty? false
+Key set: [1, 2, 5]
+Values: [One, Two, Five]
+SubMap(1,5): {1=One, 2=Two}
+HeadMap(<3): {1=One, 2=Two}
+TailMap(>=2): {2=Two, 5=Five}
+After clear: {}
+```
+
+
+# 📘 TreeMap vs TreeSet
+
+Both **TreeMap** and **TreeSet** are part of the **sorted collections** family, but they serve different purposes. Let’s break them down clearly.
+
+---
+
+## 🔑 Core Difference
+
+- **TreeSet** → Stores **unique elements** in **sorted order**.  
+- **TreeMap** → Stores **key–value pairs** with **keys sorted** in natural order.  
+
+---
+
+## ⚙️ Operations Comparison
+
+| Feature / Operation | **TreeSet** | **TreeMap** |
+|----------------------|-------------|-------------|
+| **Data Stored** | Only **elements** (no duplicates) | **Key–Value pairs** |
+| **Ordering** | Elements sorted (ASC/DESC) | Keys sorted (ASC by default) |
+| **Insertion** | `add(element)` | `put(key, value)` |
+| **Access** | `higher(x), lower(x), pollFirst(), pollLast()` | `get(key), subMap(), headMap(), tailMap()` |
+| **Check Existence** | `contains(element)` | `containsKey(key), containsValue(value)` |
+| **Remove** | `remove(element), removeall()` | `remove(key), clear()` |
+| **Traversal** | ASCDisplay(), DESCDisplay() | keySet(), values() |
+
+---
+
+## 📊 Example Flow
+
+### TreeSet Example
+```
+OJ7Lib.TreeSet ts = new OJ7Lib.TreeSet("ASC");
+ts.add(10);
+ts.add(5);
+ts.add(20);
+
+<PRINTLN>("ASC: " + ts.ASCDisplay());   // [5, 10, 20]
+<PRINTLN>("PollFirst: " + ts.pollFirst()); // 5
+<PRINTLN>("DESC: " + ts.DESCDisplay());   // [20, 10]
+```
+
+### TreeMap Example
+```
+OJ7Lib.TreeMap map = new OJ7Lib.TreeMap();
+map.put(3, "Three");
+map.put(1, "One");
+map.put(2, "Two");
+
+<PRINTLN>("Map: " + map);              // {1=One, 2=Two, 3=Three}
+<PRINTLN>("Get key 2: " + map.get(2)); // Two
+<PRINTLN>("SubMap(1,3): " + map.subMap(1,3)); // {1=One, 2=Two}
+```
+
+---
+
+## 🎯 Use Cases
+
+- **TreeSet**  
+  - When you need a **sorted list of unique elements**.  
+  - Useful for ranking, maintaining ordered sets, or removing duplicates automatically.  
+
+- **TreeMap**  
+  - When you need a **dictionary-like structure** with **sorted keys**.  
+  - Useful for indexing, lookup tables, and range queries (subMap, headMap, tailMap).  
+
+---
+
+# ✅ Conclusion
+
+- **TreeSet** → Best for **unique sorted elements**.  
+- **TreeMap** → Best for **sorted key–value mappings**.  
+- Both rely on **tree-based structures** to maintain order and provide efficient operations.  
+
+---
+
+
+===============================================================================================
+
+---
+
+# 📘 What is a Dictionary?
+
+- A **Dictionary** is a data structure that stores **key–value pairs**.  
+- Each **key** is unique and maps to a **value**.  
+- It allows fast lookups, insertions, and deletions.  
+- In Dotweb5.0, `Dictionary` is often implemented using a **Hashtable**.  
+
+---
+
+# 📝 Definition of Dictionary
+
+A **Dictionary** supports:  
+- **put(key, value)** → Insert a key-value pair.  
+- **get(key)** → Retrieve value for a given key.  
+- **isEmpty()** → Check if dictionary has no entries.  
+- **keys()** → Get all keys.  
+- **elements()** → Get all values.  
+- **remove(key)** → Remove a key-value pair.  
+- **size()** → Return the number of entries.  
+
+---
+
+# ✨ Dotweb5.0 Dictionary Example
+
+```
+<PRINTLN>("-------------------------------------------------------");
+<PRINTLN>("                   Dictionary                          ");
+<PRINTLN>("-------------------------------------------------------");
+
+Dictionary mp = new Hashtable();
+
+// -------------------------------
+// put() - Insert key-value pairs
+// -------------------------------
+mp.put("279", "maths");
+mp.put("56", "science");
+
+// -------------------------------
+// elements() - Display all values
+// -------------------------------
+for (Enumeration i = mp.elements(); i.hasMoreElements();) {
+    <PRINTLN>("Value in Dictionary : " + i.nextElement());
+}
+
+// -------------------------------
+// get() - Retrieve values by key
+// -------------------------------
+<PRINTLN>("\nValue at key = 6 : " + mp.get("6"));
+<PRINTLN>("Value at key = 279 : " + mp.get("279"));
+
+// -------------------------------
+// isEmpty() - Check if dictionary is empty
+// -------------------------------
+<PRINTLN>("\nThere is no key-value pair : " + mp.isEmpty() + "\n");
+
+// -------------------------------
+// keys() - Display all keys
+// -------------------------------
+for (Enumeration k = mp.keys(); k.hasMoreElements();) {
+    <PRINTLN>("Keys in Dictionary : " + k.nextElement());
+}
+
+// -------------------------------
+// remove() - Remove a key-value pair
+// -------------------------------
+<PRINTLN>("\nRemove : " + mp.remove("279"));
+<PRINTLN>("Check the value of removed key : " + mp.get("279"));
+
+// -------------------------------
+// size() - Get dictionary size
+// -------------------------------
+<PRINTLN>("\nSize of Dictionary : " + mp.size());
+```
+
+---
+
+# ✅ Step‑by‑Step Explanation
+
+1. **Create Dictionary** → Backed by a Hashtable.  
+2. **put()** → Adds entries:  
+   - `"279" → "maths"`  
+   - `"56" → "science"`  
+3. **elements()** → Iterates through values → prints `"maths"`, `"science"`.  
+4. **get()** →  
+   - Key `"6"` → returns `null` (not found).  
+   - Key `"279"` → returns `"maths"`.  
+5. **isEmpty()** → Returns `false` (dictionary has entries).  
+6. **keys()** → Iterates through keys → prints `"279"`, `"56"`.  
+7. **remove("279")** → Removes key `"279"`.  
+   - Checking again → `null`.  
+8. **size()** → Returns `1` (only `"56" → "science"` remains).  
+
+---
+
+# 🎯 Final Output (Step by Step)
+
+```
+-------------------------------------------------------
+                   Dictionary                          
+-------------------------------------------------------
+Value in Dictionary : maths
+Value in Dictionary : science
+
+Value at key = 6 : 
+Value at key = 279 : maths
+
+There is no key-value pair : false
+
+Keys in Dictionary : 279
+Keys in Dictionary : 56
+
+Remove : maths
+Check the value of removed key :  
+
+Size of Dictionary : 1
+```
+
+---
+
+# 📘 Dictionary vs Hashtable
+
+Both **Dictionary** and **Hashtable** are key–value pair data structures, but they differ in usage and implementation.  
+
+---
+
+## 🔑 Core Difference
+
+- **Dictionary** → Abstract class that defines the framework for key–value mappings.  
+- **Hashtable** → Concrete implementation of Dictionary that actually stores the data.  
+
+---
+
+## ⚙️ Operations Comparison
+
+| Feature / Operation | **Dictionary** | **Hashtable** |
+|----------------------|----------------|---------------|
+| **Type** | Abstract class | Concrete class |
+| **Data Stored** | Key–Value pairs | Key–Value pairs |
+| **Insertion** | `put(key, value)` | `put(key, value)` |
+| **Access** | `get(key)` | `get(key)` |
+| **Check Existence** | `isEmpty(), keys(), elements()` | `containsKey(), containsValue()` |
+| **Remove** | `remove(key)` | `remove(key)` |
+| **Traversal** | `keys(), elements()` | `keySet(), values(), entrySet()` |
+| **Implementation** | Defines methods only | Provides actual working implementation |
+
+---
+
+## 📊 Example Flow
+
+### Dictionary Example (Dotweb5.0)
+```
+Dictionary mp = new Hashtable();
+mp.put("279", "maths");
+mp.put("56", "science");
+
+<PRINTLN>("Value at key 279: " + mp.get("279"));   // maths
+<PRINTLN>("Is empty? " + mp.isEmpty());            // false
+```
+
+### Hashtable Example (Dotweb5.0)
+```
+OJ7Lib.J7HashTable table = new OJ7Lib.J7HashTable();
+table.put("Apple", 10);
+table.put("Banana", 20);
+
+<PRINTLN>("Contains key 'Banana'? " + table.containsKey("Banana")); // true
+<PRINTLN>("Size: " + table.size());                                // 2
+```
+
+---
+
+## 🎯 Use Cases
+
+- **Dictionary**  
+  - Used as a **base class** for defining key–value structures.  
+  - Provides **general methods** but not direct implementation.  
+
+- **Hashtable**  
+  - Used when you need a **working implementation** of Dictionary.  
+  - Provides **fast lookups** and supports cloning, equality checks, and clearing.  
+
+---
+
+# ✅ Conclusion
+
+- **Dictionary** → Abstract blueprint for key–value mappings.  
+- **Hashtable** → Concrete implementation that actually stores and manages key–value pairs.  
+- In Dotweb5.0, you often **declare Dictionary but instantiate Hashtable**, combining both.  
+
+
+
+
+===============================================================================================
+
+
 
 ===============================================================================================
 
