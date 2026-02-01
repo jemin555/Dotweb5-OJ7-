@@ -8845,6 +8845,75 @@ Error.... System.IndexOutOfRangeException: Index was outside the bounds of the a
 👉 In my **DotWeb5.0 program**, the exception i triggered (`myNumbers[10]`) is an **unchecked exception** (`ArrayIndexOutOfBoundsException`).
 It was caught by your `<CATCH>` block, so the program printed an error message instead of crashing.  
 
+Perfect — let’s compare how **DotWeb5.0** handles exceptions versus a mainstream language like Java.
+
+---
+
+## ⚡ Exception Handling in DotWeb5.0 vs Java
+
+### 1. **Syntax Style**
+- **DotWeb5.0:**  
+  Uses **tag-based keywords** like `<TRY>`, `<CATCH>`, `<Finally>`, `<PRINTLN>`.  
+  Example:  
+  ```dotweb
+  <TRY> {
+      <PRINTLN>("Hello");
+  } <CATCH>(Exception e) {
+      <PRINTLN>("Error: " + e);
+  }
+  ```
+- **Java:**  
+  Uses reserved words directly: `try`, `catch`, `finally`, `System.out.println`.
+
+👉 DotWeb5.0 is more *markup-like*, almost XML-flavored, while Java is plain keyword-based.
+
+---
+
+### 2. **Semantics**
+- **DotWeb5.0:**  
+  Despite the different syntax, the **behavior mirrors Java**:
+  - `<TRY>` encloses risky code.  
+  - `<CATCH>` handles exceptions.  
+  - `<Finally>` executes cleanup code.  
+  - `<PRINTLN>` outputs text.  
+- **Java:**  
+  Same semantics, but stricter about method signatures (`public static void main(String[] args)`).
+
+👉 DotWeb5.0 is designed to be **educational and simplified**, hiding boilerplate.
+
+---
+
+### 3. **Types of Exceptions**
+
+Both DotWeb5.0 and Java recognize similar categories:
+- **Checked exceptions** → must be handled (e.g., file errors).  
+- **Unchecked exceptions** → runtime errors (e.g., array index out of bounds).  
+- **Errors** → fatal conditions (e.g., out of memory).  
+
+👉 In your DotWeb5.0 example, `myNumbers[10]` triggers an **unchecked exception** (`ArrayIndexOutOfBoundsException`).
+
+---
+
+### 4. **Output Behavior**
+- **DotWeb5.0:**  
+  Prints `Error.... System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at exceptionexample.Program.Main(String[] args)
+
+- **Java:**  
+  Prints different for exception, but requires `System.out.println`.
+
+👉 Functionally identical, but DotWeb5.0 makes it look simpler.
+
+---
+
+## 📝 Summary
+- DotWeb5.0 is essentially a **Java-like language with XML-style tags**.  
+- Exception handling rules are the same: try → catch → finally.  
+- The difference is **syntax sugar**: DotWeb5.0 hides Java’s boilerplate and makes code look like structured markup.  
+- Your program demonstrated an **unchecked exception** that was caught and printed.
+
+---
+
 ==============================================================================================
 
 
