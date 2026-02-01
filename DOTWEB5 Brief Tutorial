@@ -6551,9 +6551,7 @@ Contains 'Alice'? False
 
 Size of list: 2
 ===============================================================================================
-Got it 👍 — let’s break this down clearly and professionally with attractive headings so you can understand both **what a stack is** and **how your Dotweb5.0 example code works**.
 
----
 
 # 📘 What is a Stack?
 
@@ -6659,6 +6657,59 @@ st.removeAllElements(st);
 ```
 - Clears the stack completely.  
 - `size()` → returns `0`.
+
+
+✨ Dotweb5.0 Stack Example
+
+<PRINTLN>("------------------------------------------------------------------------------------");
+<PRINTLN>("                 <STACK>   EXAMPLES                          ");
+<PRINTLN>("------------------------------------------------------------------------------------");
+
+OJ7Lib.<VList><STACK> st = new OJ7Lib.<VList><STACK>(9);
+
+    // -------------------------------
+    // Push elements onto the stack
+    // -------------------------------
+    st.<PUSH>(1);
+    st.<PUSH>(2);
+    st.<PUSH>(3);
+    st.<PUSH>(4);
+
+    // -------------------------------
+    // Pop the top element and peek
+    // -------------------------------
+    <PRINTLN>(st.<POP>);
+    <PRINTLN>(st.peek());
+
+    // -------------------------------
+    // Push more elements
+    // -------------------------------
+    st.<PUSH>(5);
+    st.<PUSH>(6);
+
+    // -------------------------------
+    // Remove element at index 0
+    // -------------------------------
+    st.removeElementAt(0);
+
+    // -------------------------------
+    // Push additional elements
+    // -------------------------------
+    st.<PUSH>(7);
+    st.<PUSH>(8);
+
+    // -------------------------------
+    // Check contents and properties
+    // -------------------------------
+    <PRINTLN>(st.contains(7));
+    <PRINTLN>(st.elementAt(0));
+    <PRINTLN>(st.size());
+
+    // -------------------------------
+    // Remove all elements
+    // -------------------------------
+    st.removeAllElements(st);
+    <PRINTLN>(st.size());
 
 ---
 
