@@ -8833,7 +8833,9 @@ Error.... java.lang.ArrayIndexOutOfBoundsException: Index 10 out of bounds for l
 - **Output:**  
 
 ```
-Error.... java.lang.ArrayIndexOutOfBoundsException: Index 10 out of bounds for length 3
+Error.... System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at exceptionexample.Program.Main(String[] args)
+
 ```
 
 ---
