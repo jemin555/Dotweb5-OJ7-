@@ -8501,6 +8501,114 @@ This makes it more scalable and efficient for handling terabytes or more, depend
 ```
 bag
 ```
+Next Dotweb5 Program about  file is given below
+
+
+---
+
+# ✨ Explanation of the dotweb5.0 Program
+
+### Program Overview
+
+This program, defined inside the `ConsoleApp289` package with the class `Java7File`, 
+demonstrates **file handling operations** such as writing, reading, and tokenizing 
+strings using different approaches (`FileDetail`, `FileStream`, `Buffered`, and `StringTokens`).
+
+---
+
+## 🔹 Step 1: Printing File Details
+```dotweb5
+<PRINTLN>("Print the detail of file wilmix.txt");
+FileDetail.Print("wilmix.txt");
+```
+- The program prints a message indicating that it will display details of the file `wilmix.txt`.  
+- It then calls `FileDetail.Print("wilmix.txt")` to show the file’s information (such as size, path, or metadata depending on implementation).
+
+---
+
+## 🔹 Step 2: Writing and Reading with FileStream
+```dotweb5
+<PRINTLN>("Write a String and Print character by character from a file wilmix2.txt using FileStream");
+FileStream.Write("wilmix2.txt", "he is studying mathematics");
+for (int i=0;i< FileStream.Read("wilmix2.txt").size();i++)
+    Console.Write("" + FileStream.Read("wilmix2.txt").get(i).ToString());
+```
+- A message is printed to explain the operation.  
+- The string `"he is studying mathematics"` is written into the file `wilmix2.txt` using `FileStream.Write`.  
+- The program then reads the file **character by character** and prints each character sequentially to the console.
+
+---
+
+## 🔹 Step 3: Writing and Reading with Buffered
+```dotweb5
+<PRINTLN>("Write a String and Print character by character from a file wilmix3.txt using Buffered");
+Buffered.Write("wilmix3.txt", "horse is going now. now it is not a good time");
+<PRINTLN>("" + Buffered.Read("wilmix3.txt"));
+```
+- A message is printed to indicate the use of buffered operations.  
+- The string `"horse is going now. now it is not a good time"` is written into the file `wilmix3.txt`.  
+- The program then reads the entire content of the file using `Buffered.Read` and prints it directly.
+
+---
+
+## 🔹 Step 4: Splitting String into Tokens
+```dotweb5
+<PRINTLN>("read a string from file wilmix3.txt and split the string to tokens and get the 2nd token from the string");
+<PRINTLN>("" + StringTokens.Split("wilmix3.txt").get(2));
+```
+- The program explains that it will split the string from `wilmix3.txt` into tokens.  
+- Using `StringTokens.Split`, the file content is divided into words (tokens).  
+- It then retrieves and prints the **second token** from the split string.
+
+---
+
+# 🎯 Final Summary
+This program demonstrates:
+1. **File detail retrieval** (`FileDetail.Print`).  
+2. **File writing and character-by-character reading** using `FileStream`.  
+3. **Buffered writing and reading** for efficient file handling.  
+4. **String tokenization** to extract specific words from a file.  
+
+
+
+---
+# 🎯 Final Output
+
+### Print the detail of file wilmix.txt
+```
+File name : wilmix.txt
+Path: wilmix.txt
+Absolute path: C:\Enlight\project\wilmix.txt
+Parent: null
+Exists : false
+```
+
+----------------------
+
+### Write a String and Print character by character from a file wilmix2.txt using FileStream
+```
+he  is  studying  mathematics
+```
+
+----------------------
+
+### Write a String and Print character by character from a file wilmix3.txt using Buffered
+```
+Data is written Success into file..wilmix3.txt
+horse  is  going now. now  it  is  not  a  good  time
+```
+
+----------------------
+
+### Read a string from file wilmix3.txt and split the string to tokens and get the 2nd token from the string
+```
+going
+```
+
+---
+
+
+
 
 =====================================================================================================
                       
