@@ -9267,6 +9267,73 @@ Both DotWeb5.0 and Java recognize similar categories:
 
 ---
 
+### ✅ Write a Dotweb5.0 Program for Userdefined Exception
+
+Perfect — let’s treat your **User-Defined Exception program** in the same way we did for the earlier ones:  
+
+1. **Extract the program logic clearly**  
+2. **Explain each part in standard English**  
+3. **Show the output headings and results**  
+
+---
+
+# ✨ Program: User-Defined Exception in Dotweb5.0
+
+```dotweb5
+
+<WEB>
+
+<PACK> userdefinedexception
+
+{
+
+  <CLASS> Program
+
+  {
+
+    static void checkAge(int age)
+    {
+      if (age < 18)
+      {
+        throw new <Arithmetic>("Access denied - You must be at least 30 years old.");
+      }
+      else
+      {
+        <PRINTLN>("Access granted - You are old enough!");
+      }
+    }
+
+    public void main()
+    {
+       checkAge(20);
+    }
+
+  }
+
+}
+```
+
+---
+
+# 📄 Output Headings and Results
+
+### User-Defined Exception Example
+```
+Access granted - You are old enough!
+```
+
+---
+
+# 🎯 Explanation
+- The program defines a method **`checkAge(int age)`**.  
+- If the given age is **less than 18**, it throws a **user-defined Arithmetic exception** with the message:  
+  `"Access denied - You must be at least 30 years old."`  
+- If the age is **18 or above**, it prints:  
+  `"Access granted - You are old enough!"`  
+- In the `main` method, the program calls `checkAge(20)`.  
+- Since `20` is greater than 18, the condition for throwing the exception is not met, and the program prints the success message.  
+
+
 ==============================================================================================
              
                        OAKJAVA7C compiler with DOTWEB5.0 
